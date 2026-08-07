@@ -16,8 +16,29 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
 <style>
+    /* FULL WIDTH - fill the viewport */
     .main {background-color: #fefcf3;}
-    .stApp {max-width: 1100px; margin: 0 auto;}
+    .stApp {max-width: 100%; margin: 0; padding: 0; background-color: #fefcf3;}
+    
+    .block-container {
+        max-width: 100% !important;
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+        padding-top: 2rem !important;
+    }
+    
+    /* Fix scrolling */
+    section[data-testid="stSidebar"] {display: none;}
+    .main .block-container {
+        overflow: visible !important;
+    }
+    [data-testid="stAppViewContainer"] {
+        overflow-y: auto !important;
+    }
+    .stPlotlyChart > div {
+        overflow: visible !important;
+    }
+
     .big-stat {font-size: 3.2rem; font-weight: bold; color: #e07a5f; text-align: center; margin: 0;}
     .stat-label {font-size: 1rem; color: #666; text-align: center; margin-top: 0;}
     .section-header {
@@ -56,7 +77,6 @@ st.markdown("""
         padding: 16px;
     }
     .stPlotlyChart {overflow: visible !important;}
-    iframe {max-height: 500px !important;}
 </style>
 """, unsafe_allow_html=True)
 
